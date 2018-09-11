@@ -1,0 +1,27 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ingress-disloman
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  tls:
+  - hosts:
+    - minikube
+    secretName: springboot-webapp-secret
+  rules:
+  - host: minikube
+    http:
+      paths:
+        - path: /info
+          backend:
+            serviceName: echoserver-svc
+            servicePort: 8080
+        - path: /webapp
+          backend:
+            serviceName: springboot-webapp-svc
+            servicePort: 8080
+        - path: /restservice
+          backend:
+            serviceName: consuming-orchestra-rest-svc  
+            servicePort: 8090
