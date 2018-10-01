@@ -1,0 +1,19 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ingress-disloman
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+    - host: disloman-local
+      http:
+        paths:
+          - path: /api
+            backend:
+              serviceName: ingestion-service
+              servicePort: 8080
+          - path: /kafkaManager
+            backend:
+              serviceName: kafka-manager
+              servicePort: 80

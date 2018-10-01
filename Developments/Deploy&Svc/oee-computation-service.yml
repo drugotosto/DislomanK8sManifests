@@ -1,0 +1,29 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: oee-computation-deploy
+  namespace: disloman-local
+spec:
+  template:
+    metadata:
+      labels:
+        app: oee-computation-deploy
+    spec:
+      containers:
+      - name: oee-computation
+        image: drugotosto84/oee-computation-service:1.0.0-SNAPSHOT
+        imagePullPolicy: Always
+        env:
+        - name: SPRING_PROFILES_ACTIVE
+          value: "kub"
+  replicas: 1
+  # Aspetta 10 sencondi prima di considerare ogni Pod pronto
+  minReadySeconds: 10
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      # Il Rolling Update avverrà tirando giù un Pod alla volta
+      maxUnavailable: 1
+      # Il Rolling Update avverrà senza avere più di 1 extra Pod esistente rispetto a quelli complessivi stabiliti da
+      maxSurge: 1
+

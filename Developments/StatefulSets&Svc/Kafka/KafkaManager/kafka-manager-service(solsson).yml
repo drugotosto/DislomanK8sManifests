@@ -1,0 +1,15 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: kafka-manager
+  namespace: disloman-local
+  labels:
+    app: kafka-manager
+spec:
+  type: NodePort
+  selector:
+    app: kafka-manager
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 80
