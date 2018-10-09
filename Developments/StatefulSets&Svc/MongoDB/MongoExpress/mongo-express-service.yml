@@ -1,0 +1,15 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: mongo-express
+  namespace: disloman-local
+  labels:
+    app: mongo-express
+spec:
+  type: NodePort
+  ports:
+  - port: 8081
+    targetPort: 8081
+    protocol: TCP
+  selector:
+    app: mongo-express

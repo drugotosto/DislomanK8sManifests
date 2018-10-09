@@ -27,7 +27,6 @@ spec:
     metadata:
       labels:
         app: kafka
-      annotations:
     spec:
       terminationGracePeriodSeconds: 30
       initContainers:
@@ -74,10 +73,6 @@ spec:
           requests:
             cpu: 100m
             memory: 512Mi
-        readinessProbe:
-          tcpSocket:
-            port: 9092
-          timeoutSeconds: 1
         volumeMounts:
         - name: config
           mountPath: /etc/kafka
@@ -97,4 +92,4 @@ spec:
       storageClassName: disloman-storage
       resources:
         requests:
-          storage: 10Gi
+          storage: 1Gi

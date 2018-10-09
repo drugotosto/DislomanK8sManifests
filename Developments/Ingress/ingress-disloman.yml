@@ -6,10 +6,10 @@ metadata:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
-    - host: disloman-local
+    - host: disloman
       http:
         paths:
-          - path: /api
+          - path: /api/orchestra
             backend:
               serviceName: ingestion-service
               servicePort: 8080
@@ -17,3 +17,11 @@ spec:
             backend:
               serviceName: kafka-manager
               servicePort: 80
+          - path: /api/ssb
+            backend:
+              serviceName: oee-computation-service
+              servicePort: 8080
+          - path: /mongoExpress
+            backend:
+              serviceName: mongo-express
+              servicePort: 8081

@@ -1,0 +1,16 @@
+# A headless service to create DNS records
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mongo
+  namespace: disloman-local
+  labels:
+    name: mongo
+spec:
+  ports:
+  - port: 27017
+    targetPort: 27017
+  clusterIP: None
+  selector:
+    role: mongo
