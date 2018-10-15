@@ -4,7 +4,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: mongo
-  namespace: disloman-local
+  namespace: disloman
   labels:
     name: mongo
 spec:

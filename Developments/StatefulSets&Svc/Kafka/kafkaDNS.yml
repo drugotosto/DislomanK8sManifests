@@ -4,7 +4,9 @@ apiVersion: v1
 kind: Service
 metadata:
   name: broker
-  namespace: disloman-local
+  namespace: disloman
+  labels:
+      name: kafka
 spec:
   ports:
   - port: 9092

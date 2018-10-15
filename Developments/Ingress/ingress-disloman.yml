@@ -13,15 +13,15 @@ spec:
             backend:
               serviceName: ingestion-service
               servicePort: 8080
-          - path: /kafkaManager
-            backend:
-              serviceName: kafka-manager
-              servicePort: 80
           - path: /api/ssb
             backend:
               serviceName: oee-computation-service
               servicePort: 8080
-          - path: /mongoExpress
-            backend:
-              serviceName: mongo-express
-              servicePort: 8081
+#          - path: /kafkaManager
+#            backend:
+#              serviceName: kafka-manager
+#              servicePort: 80
+#          - path: /mongoExpress
+#            backend:
+#              serviceName: mongo-express
+#              servicePort: 8081

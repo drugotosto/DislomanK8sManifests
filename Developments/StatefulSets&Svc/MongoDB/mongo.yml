@@ -2,7 +2,7 @@
 # kind: Service
 # metadata:
 #   name: mongo
-#   namespace: disloman-local
+#   namespace: disloman
 # spec:
 #   ports:
 #   - port: 27017
@@ -157,6 +157,7 @@ kind: Service
 metadata:
   labels:
     name: mongo
+  namespace: disloman
   name: mongo
 spec:
   ports:

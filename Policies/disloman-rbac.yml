@@ -8,6 +8,6 @@ roleRef:
   name: cluster-admin
 subjects:
 - kind: ServiceAccount
-  # Permissions given to the “default” service account are available to any pod in the namespace "disloman-local"
+  # Permissions given to the “default” service account are available to any pod in the namespace "disloman"
   name: default
-  namespace: disloman-local
+  namespace: disloman

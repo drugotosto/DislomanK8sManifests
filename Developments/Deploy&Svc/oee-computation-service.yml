@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: oee-computation-service
-  namespace: disloman-local
+  namespace: disloman
   labels:
     app: oee-computation
 spec:
@@ -20,7 +20,7 @@ apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
   name: oee-computation-deploy
-  namespace: disloman-local
+  namespace: disloman
 spec:
   selector:
     matchLabels:
