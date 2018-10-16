@@ -4,13 +4,11 @@ metadata:
   name: oee-computation-service
   namespace: disloman
   labels:
-    app: oee-computation
+    app: disloman
 spec:
-  type: NodePort
   ports:
   - protocol: TCP
-    # Rappresenta il numero di porta associato al Servizio in questione che verrà utilizzato dagli altri Servizi all'interno del Cluster. 
-    # Gli altri Service del cluster per comunicare con questo Servizio dovranno quindi fare riferimento al suo DNS NAME: ingestion-service e PORT NUMER:8080
+    # Gli altri Services/Pods del cluster per comunicare con questo Servizio dovranno quindi fare riferimento al suo DNS NAME: ingestion-service e PORT NUMER:8080
     port: 8080
   selector:
     app: oee-computation
@@ -37,7 +35,7 @@ spec:
         env:
         - name: SPRING_PROFILES_ACTIVE
           value: "kub"
-        # Lista delle porte che il dato container espone (solitamente 1) e che sono quindi accoppiate con quelle definite all'interno del suo Dockerfile (non è necesseria definirla) e che sarà accoppiata alla TargetPort del Service Object.
+        # Lista delle porte che il dato container espone (solitamente 1) e che sono quindi accoppiate con quelle definite all'interno del suo Dockerfile (non è necesseria definirla)
         # Sulla data porta ci sarà in ascolto una determinata applicazione 
         ports:
         - containerPort: 8080

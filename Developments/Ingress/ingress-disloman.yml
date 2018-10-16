@@ -4,6 +4,8 @@ metadata:
   name: ingress-disloman
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
+  labels:
+    app: disloman
 spec:
   rules:
     - host: disloman
