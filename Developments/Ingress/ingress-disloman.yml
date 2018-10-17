@@ -2,10 +2,9 @@ apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
   name: ingress-disloman
+  namespace: disloman
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
-  labels:
-    app: disloman
 spec:
   rules:
     - host: disloman
@@ -13,11 +12,11 @@ spec:
         paths:
           - path: /api/orchestra
             backend:
-              serviceName: ingestion-service
+              serviceName: ingestion
               servicePort: 8080
           - path: /api/ssb
             backend:
-              serviceName: oee-computation-service
+              serviceName: oee-computation
               servicePort: 8080
 #          - path: /kafkaManager
 #            backend:

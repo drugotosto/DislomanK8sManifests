@@ -1,14 +1,14 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: oee-computation-service
+  name: oee-computation
   namespace: disloman
   labels:
     app: disloman
 spec:
   ports:
   - protocol: TCP
-    # Gli altri Services/Pods del cluster per comunicare con questo Servizio dovranno quindi fare riferimento al suo DNS NAME: ingestion-service e PORT NUMER:8080
+    # Gli altri Pods del cluster per comunicare con questo Servizio (e relativi Pods che gli stanno dietro) possono quindi utilizzare il DNS NAME: oee-computation e PORT NUMER:8080
     port: 8080
   selector:
     app: oee-computation
@@ -19,10 +19,24 @@ kind: Deployment
 metadata:
   name: oee-computation-microservice
   namespace: disloman
+  labels:
+    app: disloman
+    name: oee-computation
+    version: 1.0.0-SNAPSHOT
 spec:
   selector:
     matchLabels:
-        app: oee-computation
+      app: oee-computation
+  replicas: 1
+  # Aspetta 10 sencondi prima di considerare ogni Pod pronto
+  minReadySeconds: 10
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      # Il Rolling Update avverrà tirando giù un Pod alla volta
+      maxUnavailable: 1
+      # Il Rolling Update avverrà senza avere più di 1 extra Pod esistente rispetto a quelli complessivi stabiliti da
+      maxSurge: 1
   template:
     metadata:
       labels:
@@ -35,18 +49,8 @@ spec:
         env:
         - name: SPRING_PROFILES_ACTIVE
           value: "kub"
-        # Lista delle porte che il dato container espone (solitamente 1) e che sono quindi accoppiate con quelle definite all'interno del suo Dockerfile (non è necesseria definirla)
-        # Sulla data porta ci sarà in ascolto una determinata applicazione 
+        # Lista delle porte che il dato container espone e che sono quindi accoppiate con quelle definite all'interno del suo Dockerfile (non è necesseria definirla)
+        # Sulla data porta ci sarà in ascolto una determinata applicazione
         ports:
         - containerPort: 8080
-  replicas: 1
-  # Aspetta 10 sencondi prima di considerare ogni Pod pronto
-  minReadySeconds: 10
-  strategy:
-    type: RollingUpdate
-    rollingUpdate:
-      # Il Rolling Update avverrà tirando giù un Pod alla volta
-      maxUnavailable: 1
-      # Il Rolling Update avverrà senza avere più di 1 extra Pod esistente rispetto a quelli complessivi stabiliti da
-      maxSurge: 1
 

@@ -2,6 +2,9 @@ kind: ConfigMap
 metadata:
   name: kafka-broker-config
   namespace: disloman
+  labels:
+    app: disloman
+    name: kafka
 apiVersion: v1
 data:
   init.sh: |-

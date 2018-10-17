@@ -3,6 +3,9 @@ kind: Service
 metadata:
   name: zookeeper
   namespace: disloman
+  labels:
+    app: disloman
+    name: zookeeper
 spec:
   ports:
   - port: 2181
@@ -14,13 +17,16 @@ spec:
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-  name: zoo
+  name: zookeeper
   namespace: disloman
+  labels:
+    app: disloman
+    name: zookeeper
 spec:
   selector:
     matchLabels:
       app: zookeeper
-  serviceName: "zoo"
+  serviceName: "zoodns"
   replicas: 1
   updateStrategy:
     type: OnDelete

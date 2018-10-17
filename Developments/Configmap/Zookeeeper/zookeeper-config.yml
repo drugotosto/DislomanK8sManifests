@@ -2,6 +2,9 @@ kind: ConfigMap
 metadata:
   name: zookeeper-config
   namespace: disloman
+  labels:
+    app: disloman
+    name: zookeeper
 apiVersion: v1
 data:
   init.sh: |-
