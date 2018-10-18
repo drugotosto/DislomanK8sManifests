@@ -14,7 +14,7 @@ spec:
     app: oee-computation
 ---
 
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: oee-computation-microservice
@@ -35,7 +35,7 @@ spec:
     rollingUpdate:
       # Il Rolling Update avverrà tirando giù un Pod alla volta
       maxUnavailable: 1
-      # Il Rolling Update avverrà senza avere più di 1 extra Pod esistente rispetto a quelli complessivi stabiliti da
+      # Il Rolling Update avverrà senza avere più di 1 extra Pod esistente rispetto a quelli complessivi stabiliti da replicas
       maxSurge: 1
   template:
     metadata:
