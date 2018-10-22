@@ -6,6 +6,10 @@ metadata:
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
+  tls:
+  - hosts:
+    - disloman
+    secretName: disloman-ingress-tls
   rules:
     - host: disloman
       http:
