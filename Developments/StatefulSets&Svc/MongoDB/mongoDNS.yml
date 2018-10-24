@@ -6,12 +6,12 @@ metadata:
   name: mongodns
   namespace: disloman
   labels:
-    app: disloman
-    name: mongo
+     app: disloman
+     name: mongo
 spec:
   ports:
   - port: 27017
-    targetPort: 27017
+  # mongo-<num>.kafkadns disloman.svc.cluster.local
   clusterIP: None
   selector:
-    role: mongo
+    app: mongo

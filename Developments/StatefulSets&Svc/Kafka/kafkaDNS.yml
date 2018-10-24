@@ -11,7 +11,7 @@ metadata:
 spec:
   ports:
   - port: 9092
-  # [podname].broker disloman-local.svc.cluster.local
+  # kafka-<num>.kafkadns disloman.svc.cluster.local
   clusterIP: None
   selector:
     app: kafka
