@@ -52,7 +52,10 @@ spec:
         # Lista delle porte che il dato container espone e che sono quindi accoppiate con quelle definite all'interno del suo Dockerfile (non è necesseria definirla)
         # Sulla data porta ci sarà in ascolto una determinata applicazione
         ports:
-        - containerPort: 8080
+          - containerPort: 8080
+        resources:
+          requests:
+            cpu: 100m
         livenessProbe:
           httpGet:
             path: /actuator/health
