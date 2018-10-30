@@ -30,3 +30,10 @@ spec:
 #            backend:
 #              serviceName: mongo-express
 #              servicePort: 8081
+    - host: disloman-gateway
+      http:
+        paths:
+          - path: /api
+            backend:
+              serviceName: gateway
+              servicePort: web

@@ -24,12 +24,10 @@ metadata:
     name: oee-computation
     version: 1.0.0-SNAPSHOT
 spec:
+  replicas: 1
   selector:
     matchLabels:
       app: oee-computation
-  replicas: 1
-  # Aspetta 10 sencondi prima di considerare ogni Pod pronto
-  minReadySeconds: 10
   strategy:
     type: RollingUpdate
     rollingUpdate:

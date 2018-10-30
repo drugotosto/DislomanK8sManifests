@@ -1,7 +1,7 @@
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
-  name: disloman-storage
+  name: disloman-minikube-storage
   labels:
     app: disloman
 provisioner: k8s.io/minikube-hostpath
