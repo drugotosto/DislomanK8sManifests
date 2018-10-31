@@ -14,14 +14,10 @@ spec:
     - host: disloman
       http:
         paths:
-          - path: /api/orchestra
+          - path: /api
             backend:
-              serviceName: ingestion
-              servicePort: 8080
-          - path: /api/ssb
-            backend:
-              serviceName: oee-computation
-              servicePort: 8080
+              serviceName: gateway
+              servicePort: web
 #          - path: /kafkaManager
 #            backend:
 #              serviceName: kafka-manager
@@ -30,10 +26,3 @@ spec:
 #            backend:
 #              serviceName: mongo-express
 #              servicePort: 8081
-    - host: disloman-gateway
-      http:
-        paths:
-          - path: /api
-            backend:
-              serviceName: gateway
-              servicePort: web
