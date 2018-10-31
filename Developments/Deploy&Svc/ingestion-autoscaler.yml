@@ -5,12 +5,13 @@ metadata:
   namespace: disloman
   labels:
     app: disloman
-    name: autoscaler
+    name: ingestion-autoscaler
+    type: autoscaler
 spec:
   scaleTargetRef:
     apiVersion: apps/v1beta1
     kind: Deployment
     name: ingestion-microservice
   minReplicas: 1
-  maxReplicas: 3
+  maxReplicas: 2
   targetCPUUtilizationPercentage: 80

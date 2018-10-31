@@ -1,17 +1,17 @@
 apiVersion: autoscaling/v1
 kind: HorizontalPodAutoscaler
 metadata:
-  name: oee-computation-autoscaler
+  name: gateway-autoscaler
   namespace: disloman
   labels:
     app: disloman
-    name: oee-computation-autoscaler
+    name: gateway-autoscaler
     type: autoscaler
 spec:
   scaleTargetRef:
     apiVersion: apps/v1beta1
     kind: Deployment
-    name: oee-computation-microservice
+    name: gateway-microservice
   minReplicas: 1
   maxReplicas: 2
   targetCPUUtilizationPercentage: 80
