@@ -42,7 +42,7 @@ spec:
         app: ingestion
     spec:
       containers:
-      - name: ingestion
+      - name: ingestion-service
         image: drugotosto84/ingestion-service:1.0.0-SNAPSHOT
         imagePullPolicy: Always
         env:

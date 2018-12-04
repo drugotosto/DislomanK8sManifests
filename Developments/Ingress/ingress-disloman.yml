@@ -14,7 +14,7 @@ spec:
     - host: disloman
       http:
         paths:
-          - path: /api
+          - path: /
             backend:
               serviceName: gateway
               servicePort: web

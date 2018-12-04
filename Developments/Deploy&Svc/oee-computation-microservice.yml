@@ -41,7 +41,7 @@ spec:
         app: oee-computation
     spec:
       containers:
-      - name: oee-computation
+      - name: oee-computation-service
         image: drugotosto84/oee-computation-service:1.0.0-SNAPSHOT
         imagePullPolicy: Always
         env:
