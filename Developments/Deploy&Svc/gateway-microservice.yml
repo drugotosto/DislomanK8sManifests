@@ -47,6 +47,9 @@ spec:
       - name: gateway-service
         image: drugotosto84/zuul-service:1.0.0-SNAPSHOT
         imagePullPolicy: Always
+        env:
+        - name: SPRING_PROFILES_ACTIVE
+          value: "kub"
         # Lista delle porte che il dato container espone (solitamente 1) e che sono quindi accoppiate con quelle definite all'interno del suo Dockerfile (non è necesseria definirla) e che sarà accoppiata alla TargetPort del Service Object.
         # Sulla data porta ci sarà in ascolto una determinata applicazione
         ports:
