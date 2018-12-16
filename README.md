@@ -16,6 +16,7 @@
 attraverso il comando "<code>kubectl create -f &lt;manifest-file.yml&gt;</code>"</h3>
 <ol>
     <li>Namespaces Directory</li>
+    <li>Creazione Nuovo Context "disloman" attraverso: <code>kubectl config set-context disloman --namespace=disloman --cluster=minikube --user=minikube</code></li>
     <li>Developments/Configmap Directory</li>
     <li>Policies Directory</li>
     <li>StorageClasses Directory</li>

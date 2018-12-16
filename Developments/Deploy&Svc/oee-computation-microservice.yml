@@ -47,20 +47,19 @@ spec:
         env:
         - name: SPRING_PROFILES_ACTIVE
           value: "kub"
-        # Lista delle porte che il dato container espone e che sono quindi accoppiate con quelle definite all'interno del suo Dockerfile (non è necesseria definirla)
-        # Sulla data porta ci sarà in ascolto una determinata applicazione
+        # Lista delle porte che il dato container espone e che sono quindi accoppiate con quelle definite all'interno del suo Dockerfile (non è necesseria definirla). Sulla data porta ci sarà in ascolto una determinata applicazione
         ports:
           - containerPort: 8080
         livenessProbe:
           httpGet:
             path: /actuator/health
             port: 8080
-          initialDelaySeconds: 170
+          initialDelaySeconds: 150
           timeoutSeconds: 30
         readinessProbe:
           httpGet:
             path: /greetings
             port: 8080
-          initialDelaySeconds: 170
+          initialDelaySeconds: 150
           timeoutSeconds: 30
 
