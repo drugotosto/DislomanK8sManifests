@@ -64,10 +64,6 @@ spec:
           name: peer
         - containerPort: 3888
           name: leader-election
-        resources:
-          requests:
-            cpu: 10m
-            memory: 100Mi
         volumeMounts:
         - name: config
           mountPath: /etc/kafka

@@ -52,9 +52,6 @@ spec:
         # Sulla data porta ci sarà in ascolto una determinata applicazione
         ports:
         - containerPort: 8080
-        resources:
-          requests:
-            cpu: 100m
         livenessProbe:
           httpGet:
             path: /actuator/health

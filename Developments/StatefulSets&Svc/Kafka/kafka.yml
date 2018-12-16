@@ -75,10 +75,6 @@ spec:
         command:
         - ./bin/kafka-server-start.sh
         - /etc/kafka/server.properties
-        resources:
-          requests:
-            cpu: 100m
-            memory: 512Mi
         volumeMounts:
         - name: config
           mountPath: /etc/kafka
